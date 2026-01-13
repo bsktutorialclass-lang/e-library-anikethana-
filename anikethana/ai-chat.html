@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Assistant - Nobel Degree College E-Library</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="../nobel-e-library/logo.jpg" alt="Nobel E-Library Logo" class="logo-img">
+                <div class="logo-text">
+                    <h1>Nobel Degree College, Sindhanur</h1>
+                    <p>NobeL AI Assistant</p>
+                </div>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="index.html#resources">Resources</a>
+                <a href="index.html#about">About</a>
+                <a href="index.html#contact">Contact</a>
+                <a href="ai-chat.html" class="ai-assistant-link active"><i class="fas fa-robot"></i> AI Assistant</a>
+            </div>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-times"></i>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="ai-hero">
+            <div class="ai-hero-content">
+                <h1>Smart AI Search & Chat</h1>
+                <p>Ask for books, notes, question papers, and learning resources for BA & B.Com.</p>
+            </div>
+        </section>
+
+        <section class="ai-search-section">
+            <div class="container">
+                <h2 class="section-heading">AI Smart Search</h2>
+                <div class="ai-search-bar">
+                    <input type="text" id="aiSearchInput" placeholder="Example: BA 1st year economics notes" autocomplete="off">
+                    <button id="aiSearchBtn" type="button"><i class="fas fa-search"></i> Search</button>
+                </div>
+                <div id="aiSearchResults" class="ai-search-results">
+                    <div class="ai-result-empty">Type a query and click Search.</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="ai-chat-section">
+            <div class="container">
+                <h2 class="section-heading">AI Chatbot</h2>
+                <div class="ai-chat">
+                    <div id="aiChatMessages" class="ai-chat-messages">
+                        <div class="ai-message ai-message-bot">
+                            Hello! I can help you find BA/B.Com study materials, e-books, and resources. What do you need?
+                        </div>
+                    </div>
+                    <div class="ai-chat-input">
+                        <input type="text" id="aiChatInput" placeholder="Type your question..." autocomplete="off">
+                        <button id="aiChatSend" type="button"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const aiSearchInput = document.getElementById('aiSearchInput');
+            const aiSearchBtn = document.getElementById('aiSearchBtn');
+            const aiSearchResults = document.getElementById('aiSearchResults');
+
+            const aiChatMessages = document.getElementById('aiChatMessages');
+            const aiChatInput = document.getElementById('aiChatInput');
+            const aiChatSend = document.getElementById('aiChatSend');
+
+            function escapeHtml(text) {
+                const div = document.createElement('div');
+                div.textContent = text;
+                return div.innerHTML;
+            }
+
+            function addChatMessage(text, role) {
+                const msg = document.createElement('div');
+                msg.className = role === 'user' ? 'ai-message ai-message-user' : 'ai-message ai-message-bot';
+                msg.innerHTML = escapeHtml(text);
+                aiChatMessages.appendChild(msg);
+                aiChatMessages.scrollTop = aiChatMessages.scrollHeight;
+            }
+
+            function getDemoAnswer(q) {
+                const query = q.toLowerCase();
+
+                if (query.includes('ba') && query.includes('1st')) {
+                    return 'For BA 1st Year, check: College Resources → BA Study Materials. You can also use NDL India and SWAYAM for subject-wise books.';
+                }
+                if (query.includes('b.com') || query.includes('bcom')) {
+                    return 'For B.Com, check: College Resources → B.Com Study Materials. For accounting/management courses, SWAYAM + NPTEL are also useful.';
+                }
+                if (query.includes('question') || query.includes('paper')) {
+                    return 'For previous year question papers: College Resources → Question Papers. If you tell me BA or B.Com and the year, I can guide you better.';
+                }
+                if (query.includes('ndl')) {
+                    return 'NDL India provides millions of books and learning resources. You can search by title/author/subject and filter by language.';
+                }
+                if (query.includes('swayam')) {
+                    return 'SWAYAM offers free courses. Choose a course, enroll, and study with video + assignments. Many courses provide certificates.';
+                }
+
+                return 'Tell me: BA or B.Com, year (1st/2nd/3rd), and the subject name. I will suggest the best resources from this site and national platforms.';
+            }
+
+            function renderSearchResults(query) {
+                const q = query.trim();
+                if (!q) {
+                    aiSearchResults.innerHTML = '<div class="ai-result-empty">Type a query and click Search.</div>';
+                    return;
+                }
+
+                const items = [
+                    { title: 'College Resources: BA Study Materials', desc: 'Notes, materials, and previous papers (1st/2nd/3rd year).', link: 'index.html#resources' },
+                    { title: 'College Resources: B.Com Study Materials', desc: 'Materials, practical files, and reference books (1st/2nd/3rd year).', link: 'index.html#resources' },
+                    { title: 'NDL India', desc: 'National Digital Library: books and academic content.', link: 'https://ndl.iitkgp.ac.in/' },
+                    { title: 'SWAYAM', desc: 'Free online courses from top institutions.', link: 'https://swayam.gov.in/' },
+                    { title: 'NPTEL', desc: 'Online courses from IITs and IISc.', link: 'https://nptel.ac.in/' }
+                ];
+
+                const html = items
+                    .filter(it => (it.title + ' ' + it.desc).toLowerCase().includes(q.toLowerCase()))
+                    .slice(0, 8)
+                    .map(it => {
+                        const target = it.link.startsWith('http') ? ' target="_blank"' : '';
+                        return (
+                            '<a class="ai-result" href="' + it.link + '"' + target + '>' +
+                                '<div class="ai-result-title">' + escapeHtml(it.title) + '</div>' +
+                                '<div class="ai-result-desc">' + escapeHtml(it.desc) + '</div>' +
+                            '</a>'
+                        );
+                    })
+                    .join('');
+
+                aiSearchResults.innerHTML = html || '<div class="ai-result-empty">No matching results found. Try: BA 1st year, B.Com, question papers.</div>';
+            }
+
+            function handleSearch() {
+                renderSearchResults(aiSearchInput.value);
+            }
+
+            function handleSend() {
+                const text = aiChatInput.value.trim();
+                if (!text) return;
+                addChatMessage(text, 'user');
+                aiChatInput.value = '';
+
+                const answer = getDemoAnswer(text);
+                window.setTimeout(function () {
+                    addChatMessage(answer, 'bot');
+                }, 400);
+            }
+
+            if (aiSearchBtn) aiSearchBtn.addEventListener('click', handleSearch);
+            if (aiSearchInput) {
+                aiSearchInput.addEventListener('keydown', function (e) {
+                    if (e.key === 'Enter') handleSearch();
+                });
+            }
+
+            if (aiChatSend) aiChatSend.addEventListener('click', handleSend);
+            if (aiChatInput) {
+                aiChatInput.addEventListener('keydown', function (e) {
+                    if (e.key === 'Enter') handleSend();
+                });
+            }
+        });
+    </script>
+</body>
+</html>

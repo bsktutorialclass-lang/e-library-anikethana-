@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nobel Degree College E-Library</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="C:\Users\SHIV\Desktop\anikethana\logo.jpeg" alt="ANIKETHANA E-Library Logo" class="logo-img">
+                <div class="logo-text">
+                    <h1>Anikethana Degree College, Sindhanur</h1>
+                    <p>Anikethana E-Library</p>
+                </div>
+            </div>
+            <div class="nav-links">
+                <a href="#home" class="active">Home</a>
+                <a href="#resources">Resources</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+                <a href="ai-chat.html" class="ai-assistant-link"><i class="fas fa-robot"></i> AI Assistant</a>
+            </div>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-times"></i>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero" class="hero">
+            <div class="hero-content">
+                <h1>Welcome to Anikethana E-Library</h1>
+                <p>Access a world of knowledge at your fingertips</p>
+                <div class="search-bar">
+                    <input type="text" placeholder="Search books, articles, and more...">
+                    <button><i class="fas fa-search"></i> Search</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Add this after the hero section -->
+<section id="search-section" class="search-section">
+    <div class="container">
+        <h2 class="section-title">Search E-Books</h2>
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search for e-books, authors, or subjects...">
+            <button id="searchBtn"><i class="fas fa-search"></i> Search</button>
+        </div>
+        <div id="searchResults" class="search-results">
+            <!-- Search results will be displayed here -->
+        </div>
+    </div>
+</section>
+
+        <section id="resources" class="resources">
+            <h2>E-Resources</h2>
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="national">National Resources</button>
+                <button class="tab-btn" data-tab="karnataka">Karnataka Resources</button>
+                <button class="tab-btn" data-tab="college">College Resources</button>
+            </div>
+
+            <div class="tab-content">
+                <div id="national" class="tab-pane active">
+                    <h3>National Digital Library</h3>
+                    <div class="resource-grid">
+                        <div class="resource-card">
+                            <i class="fas fa-book-open"></i>
+                            <h4>NDL India</h4>
+                            <p>Access to millions of books and educational content</p>
+                            <a href="https://ndl.iitkgp.ac.in/" target="_blank" class="btn">Visit NDL</a>
+                        </div>
+                        <div class="resource-card">
+                            <i class="fas fa-graduation-cap"></i>
+                            <h4>SWAYAM</h4>
+                            <p>Free online courses from top institutions</p>
+                            <a href="https://swayam.gov.in/" target="_blank" class="btn">Visit SWAYAM</a>
+                        </div>
+                        <div class="resource-card">
+                            <i class="fas fa-book-reader"></i>
+                            <h4>e-PG Pathshala</h4>
+                            <p>E-content for post-graduate students</p>
+                            <a href="https://epgp.inflibnet.ac.in/" target="_blank" class="btn">Visit e-PG Pathshala</a>
+                        </div>
+                        <div class="resource-card">
+                            <i class="fas fa-university"></i>
+                            <h4>e-ShodhSindhu</h4>
+                            <p>Access to e-journals and e-books</p>
+                            <a href="https://ess.inflibnet.ac.in/" target="_blank" class="btn">Visit e-ShodhSindhu</a>
+                        </div>
+                        <div class="resource-card">
+                            <i class="fas fa-laptop-code"></i>
+                            <h4>NPTEL</h4>
+                            <p>Online courses from IITs and IISc</p>
+                            <a href="https://nptel.ac.in/" target="_blank" class="btn">Visit NPTEL</a>
+                        </div>
+                        <div class="resource-card">
+                            <i class="fas fa-atom"></i>
+                            <h4>Vidya-Mitra</h4>
+                            <p>E-learning portal with multimedia content</p>
+                            <a href="https://vidyamitra.inflibnet.ac.in/" target="_blank" class="btn">Visit Vidya-Mitra</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="karnataka" class="tab-pane">
+                    <h3>Karnataka State Resources</h3>
+                    <div class="resource-grid">
+                        <div class="resource-card">
+                            <i class="fas fa-university"></i>
+                            <h4>Karnataka State Open University</h4>
+                            <p>Access to digital resources and e-books</p>
+                            <a href="https://ksoumysuru.ac.in/" target="_blank" class="btn">Visit KSOU</a>
+                        </div>
+                        <div class="resource-card">
+                            <i class="fas fa-book"></i>
+                            <h4>Karnataka State Digital Library</h4>
+                            <p>E-books and digital resources</p>
+                            <a href="http://karnatakastateopenuniversity.in/" target="_blank" class="btn">Visit KSDL</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="college" class="tab-pane">
+                    <h3>College Resources</h3>
+                    <div class="resource-grid">
+                        <!-- BA Resources -->
+                        <div class="resource-card">
+                            <i class="fas fa-book"></i>
+                            <h4>BA Study Materials</h4>
+                            <p>Access BA course materials, notes, and previous year question papers for all semesters.</p>
+                            <div class="dropdown-content">
+                                <a href="#" class="dropdown-item">1st Year Materials</a>
+                                <a href="#" class="dropdown-item">2nd Year Materials</a>
+                                <a href="#" class="dropdown-item">3rd Year Materials</a>
+                            </div>
+                            <a href="#" class="btn"><i class="fas fa-download"></i> Download</a>
+                        </div>
+
+                        <!-- B.Com Resources -->
+                        <div class="resource-card">
+                            <i class="fas fa-chart-line"></i>
+                            <h4>B.Com Study Materials</h4>
+                            <p>Access B.Com course materials, practical files, and reference books for all semesters.</p>
+                            <div class="dropdown-content">
+                                <a href="#" class="dropdown-item">1st Year Materials</a>
+                                <a href="#" class="dropdown-item">2nd Year Materials</a>
+                                <a href="#" class="dropdown-item">3rd Year Materials</a>
+                            </div>
+                            <a href="#" class="btn"><i class="fas fa-download"></i> Download</a>
+                        </div>
+
+                        <!-- E-Books -->
+                        <div class="resource-card">
+                            <i class="fas fa-book-reader"></i>
+                            <h4>E-Books Collection</h4>
+                            <p>Access a wide range of e-books for both BA and B.Com courses.</p>
+                            <div class="dropdown-content">
+                                <a href="#" class="dropdown-item">BA E-Books</a>
+                                <a href="#" class="dropdown-item">B.Com E-Books</a>
+                                <a href="#" class="dropdown-item">Reference Books</a>
+                            </div>
+                            <a href="#" class="btn"><i class="fas fa-book-open"></i> Browse</a>
+                        </div>
+
+                        <!-- Previous Year Papers -->
+                        <div class="resource-card">
+                            <i class="fas fa-file-alt"></i>
+                            <h4>Question Papers</h4>
+                            <p>Previous year question papers for exam preparation.</p>
+                            <div class="dropdown-content">
+                                <a href="#" class="dropdown-item">BA Question Papers</a>
+                                <a href="#" class="dropdown-item">B.Com Question Papers</a>
+                                <a href="#" class="dropdown-item">Model Papers</a>
+                            </div>
+                            <a href="#" class="btn"><i class="fas fa-download"></i> Download</a>
+                        </div>
+
+                        <!-- Research Papers -->
+                        <div class="resource-card">
+                            <i class="fas fa-search"></i>
+                            <h4>Research Papers</h4>
+                            <p>Access research papers and articles for academic reference.</p>
+                            <div class="dropdown-content">
+                                <a href="#" class="dropdown-item">Arts & Humanities</a>
+                                <a href="#" class="dropdown-item">Commerce & Management</a>
+                                <a href="#" class="dropdown-item">Social Sciences</a>
+                            </div>
+                            <a href="#" class="btn"><i class="fas fa-external-link-alt"></i> View</a>
+                        </div>
+
+                        <!-- Help & Support -->
+                        <div class="resource-card">
+                            <i class="fas fa-question-circle"></i>
+                            <h4>Help & Support</h4>
+                            <p>Get assistance with accessing and using the e-library resources.</p>
+                            <div class="dropdown-content">
+                                <a href="#" class="dropdown-item">FAQs</a>
+                                <a href="#" class="dropdown-item">Tutorials</a>
+                                <a href="#contact" class="dropdown-item">Contact Support</a>
+                            </div>
+                            <a href="#contact" class="btn"><i class="fas fa-headset"></i> Get Help</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <h2>About Nobel E-Library</h2>
+            <p>Welcome to the digital library of Anikethana Degree College, Sindhanur. Our e-library provides students with access to a vast collection of digital resources, including e-books, research papers, and educational materials to support your academic journey.</p>
+            
+            <div class="features">
+                <div class="feature">
+                    <i class="fas fa-laptop"></i>
+                    <h3>Digital Access</h3>
+                    <p>Access study materials anytime, anywhere</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-book-reader"></i>
+                    <h3>Wide Collection</h3>
+                    <p>Books, journals, and research papers</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-user-graduate"></i>
+                    <h3>Student Focused</h3>
+                    <p>Resources tailored for BA and B.Com students</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <h2>Contact Us</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Get in Touch</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Anikethana Degree College, Sindhanur, Karnataka</p>
+                    <p><i class="fas fa-phone"></i> +91 XXXXXXXXXX</p>
+                    <p><i class="fas fa-envelope"></i> info@Anikethanacollege.edu.in</p>
+                </div>
+                <form class="contact-form">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <textarea placeholder="Your Message" required></textarea>
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#resources">Resources</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="https://ndl.iitkgp.ac.in/" target="_blank">NDL India</a></li>
+                    <li><a href="https://swayam.gov.in/" target="_blank">SWAYAM</a></li>
+                    <li><a href="https://epgp.inflibnet.ac.in/" target="_blank">e-PG Pathshala</a></li>
+                    <li><a href="https://ess.inflibnet.ac.in/" target="_blank">e-ShodhSindhu</a></li>
+                    <li><a href="https://nptel.ac.in/" target="_blank">NPTEL</a></li>
+                    <li><a href="https://vidyamitra.inflibnet.ac.in/" target="_blank">Vidya-Mitra</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Anikethana Degree College, Sindhanur. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
